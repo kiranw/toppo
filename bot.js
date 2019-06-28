@@ -60,7 +60,12 @@ const controller = new Botkit({
     adapter: adapter,
 
     storage
+}).slackbot({
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret,
+    scopes: ['bot'],
 });
+
 
 if (process.env.cms_uri) {
     controller.usePlugin(new BotkitCMSHelper({
